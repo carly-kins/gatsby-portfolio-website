@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #GLOBAL
+\*------------------------------------*/
+//@import "_global/mixins";
+//@import "_global/fonts";
+@import "_global/variables";
+
+@import "node_modules/bootstrap/scss/_functions";
+@import "_vendor/bootstrap-variables";
+@import "node_modules/bootstrap/scss/_variables";
+@import "node_modules/bootstrap/scss/_maps";
+@import "node_modules/bootstrap/scss/_mixins";
+@import "node_modules/bootstrap/scss/_utilities";
+
+/*------------------------------------*\
+    #OTHER
+\*------------------------------------*/
+
+@import "_vendor/bootstrap";
+
+/*------------------------------------*\
+    #SMALL
+\*------------------------------------*/
+@media (min-width: 576px) { 
+
+
+}
+
+
+/*------------------------------------*\
+    #MEDIUM
+\*------------------------------------*/
+@media (min-width: 768px) { 
+
+
+}
+
+
+/*------------------------------------*\
+    #LARGE
+\*------------------------------------*/
+
+@media (min-width: 992px) { 
+
+
+}

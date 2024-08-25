@@ -1,0 +1,17 @@
+[
+    {
+        "typeName": "navigation",
+        "title": "About",
+        "url": "#about"
+    },
+    {
+        "typeName": "navigation",
+        "title": "Projects",
+        "url": "#projects"
+    },
+    {
+        "typeName": "navigation",
+        "title": "CV",
+        "url": "#cv"
+    }
+]
