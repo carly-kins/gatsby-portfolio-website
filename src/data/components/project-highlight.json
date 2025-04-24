@@ -1,0 +1,17 @@
+[
+    {
+        "typeName": "projectHighlight",
+        "title": "About",
+        "url": "#about"
+    },
+    {
+        "typeName": "projectHighlight",
+        "title": "Projects",
+        "url": "#projects"
+    },
+    {
+        "typeName": "projectHighlight",
+        "title": "CV",
+        "url": "#cv"
+    }
+]

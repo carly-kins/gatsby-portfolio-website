@@ -29,5 +29,6 @@ module.exports = {
 		'no-console': [1],
 		'no-alert': [1],
 		camelcase: [1],
+		"react/prop-types": 0
 	},
 };
