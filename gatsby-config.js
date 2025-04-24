@@ -39,6 +39,9 @@ module.exports = {
         implementation: require("sass"),
         sassOptions: {
           quietDeps: true,
+          silenceDeprecations: [
+             "import" //https://www.reddit.com/r/bootstrap/comments/1e6i6qg/how_you_guys_are_dealing_with_sass_deprecation/?rdt=52488
+          ],
         },
       },
     },
