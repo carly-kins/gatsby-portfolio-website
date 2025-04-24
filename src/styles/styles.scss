@@ -1,0 +1,42 @@
+/* stylelint-disable scss/load-no-partial-leading-underscore */
+/* ------------------------------------*\
+    #GLOBAL
+\*------------------------------------ */
+// @ import "_global/mixins";
+// @import "_global/fonts";
+@import '_global/variables';
+@import 'node_modules/bootstrap/scss/_functions';
+@import '_vendor/bootstrap-variables';
+@import 'node_modules/bootstrap/scss/_variables';
+@import 'node_modules/bootstrap/scss/_maps';
+@import 'node_modules/bootstrap/scss/_mixins';
+@import 'node_modules/bootstrap/scss/_utilities';
+
+/* ------------------------------------*\
+    #OTHER
+\*------------------------------------ */
+
+@import '_vendor/bootstrap';
+
+/* ------------------------------------*\
+    #SMALL
+\*------------------------------------ */
+@import '_partials/tags/tags-small';
+
+/* ------------------------------------*\
+    #MEDIUM
+\*------------------------------------ */
+@media (width >= 768px) { 
+
+
+}
+
+
+/* ------------------------------------*\
+    #LARGE
+\*------------------------------------ */
+
+@media (width >= 992px) { 
+
+
+}

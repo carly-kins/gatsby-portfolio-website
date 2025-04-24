@@ -7,7 +7,6 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [
-    "gatsby-plugin-sass", 
     "gatsby-plugin-image", 
     "gatsby-plugin-sitemap", 
     "gatsby-plugin-sharp", 
@@ -33,6 +32,15 @@ module.exports = {
       options: {
         path: `./src/data/`,
       }
+    },
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        implementation: require("sass"),
+        sassOptions: {
+          quietDeps: true,
+        },
+      },
     },
     {
       resolve: `gatsby-transformer-json`,
