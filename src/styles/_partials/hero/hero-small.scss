@@ -1,11 +1,11 @@
 $block: hero;
 
 .#{$block} {
-	$hero-height: 100vh;
+	$hero-height: 80vh;
+	position: relative;
 	margin-bottom: $vertical-spacing;
 
 	nav {
-		position: relative;
 		z-index: 999;
 	}
 
@@ -257,10 +257,12 @@ $block: hero;
 		color: $rosewater;
 		inset: 0;
 		text-align: center;
+		cursor: arrow;
 
 		h1 {
 			font-size: $h1-font-size-xl;
 			font-weight: fw(bold);
+			cursor: arrow;
 		}
 
 		p {

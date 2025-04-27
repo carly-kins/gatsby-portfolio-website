@@ -16,24 +16,47 @@ $block: navbar;
 	}
 
 	.nav-link {
+		@include focus-state;
 		color: $rosewater;
 		font-family: $font-family-secondary;
 		font-weight: fw(medium);
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&.active {
 			color: $mauve;
 		}
 	}
 
 	&-toggler {
+		@include focus-state;
 		background-color: $rosewater;
+        
+		&:hover,
+		&:focus {
+			transition: box-shadow 0.1s linear;
+			border-radius: $border-radius-sm;
+			outline: 0;
+			box-shadow: $focus-ring-box-shadow;
+		}
 	}
 
 	.button {
+		@include focus-state;
 		position: absolute;
 		top: spacing(md);
 		right: $gutter;
+		border: 0;
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			border: 0;
+
+			svg {
+				fill: $mauve;
+			}
+		}
 	}
 
 	.me-auto {

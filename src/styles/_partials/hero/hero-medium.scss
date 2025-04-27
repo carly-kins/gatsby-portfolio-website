@@ -10,8 +10,13 @@ $block: hero;
 				img {
 					/* stylelint-disable-next-line declaration-no-important */
 					object-fit: scale-down !important;
-	
 				}
+			}
+		}
+
+		&__content {
+			h1 {
+				font-size: calc($h1-font-size-xl * 2);
 			}
 		}
 	}

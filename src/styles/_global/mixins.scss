@@ -15,3 +15,12 @@
 @function spacing($space) {
 	@return map.get($spacing, $space)
 }
+
+@mixin focus-state() {
+	&:focus-visible {
+		transition: box-shadow 0.1s linear;
+		border-radius: $border-radius-sm;
+		outline: 0;
+		box-shadow: $focus-ring-box-shadow;
+	}
+}

@@ -1,99 +1,169 @@
 
+// https://tympanus.net/Tutorials/CSSGlitchEffect/index3.html
+// =======================
+// Variables
+// =======================
+$hero-height: 80vh;
+$glitch-color-text: #fff;
+$glitch-color-bg: #000;
+$glitch-color-link: #f9d77e;
+$glitch-color-link-hover: #fff;
+$glitch-color-info: #efc453;
 
-.glitch {
-	--color-text: #fff;
-	--color-bg: #000;
-	--color-link: #f9d77e;
-	--color-link-hover: #fff;
-	--color-info: #efc453;
-	--glitch-width: 100vw;
-	--glitch-height: 100vh;
-	--gap-horizontal: 10px;
-	--gap-vertical: 5px;
-	--time-anim: 4s;
-	--delay-anim: 2s;
-	--blend-mode-1: none;
-	--blend-mode-2: none;
-	--blend-mode-3: none;
-	--blend-mode-4: none;
-	--blend-mode-5: overlay;
-	--blend-color-1: transparent;
-	--blend-color-2: transparent;
-	--blend-color-3: transparent;
-	--blend-color-4: transparent;
-	--blend-color-5: #af4949;
+$glitch-width: 100vw;
+$glitch-height: 100vh;
 
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+$glitch-gap-horizontal: 10px;
+$glitch-gap-vertical: 5px;
+
+$glitch-time-anim: 4s;
+$glitch-delay-anim: 2s;
+
+$glitch-blend-mode-1: none;
+$glitch-blend-mode-2: none;
+$glitch-blend-mode-3: none;
+$glitch-blend-mode-4: none;
+$glitch-blend-mode-5: overlay;
+
+$glitch-blend-color-1: transparent;
+$glitch-blend-color-2: transparent;
+$glitch-blend-color-3: transparent;
+$glitch-blend-color-4: transparent;
+$glitch-blend-color-5: #af4949;
+
+// =======================
+// Glitch Component
+// =======================
+.hero {
+	.glitch {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		height: $hero-height;
+		overflow: hidden;
+	}
+
+	.glitch__img { 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		&:nth-child(2) {
+			opacity: 0;
+		}
+	}
+
+
+	&:has(h1:hover) {
+		.glitch__img {
+			&:nth-child(2) {
+				animation: glitch-anim-flash 5s steps(1, end) infinite;
+				opacity: 1;
+
+				.no-animations & {
+					animation: none;
+					opacity: 0;
+				}
+			}
+		}
+	}
 }
 
-.glitch:hover {
-	cursor: pointer;
-}
+// .glitch {
+// 	position: relative;
+// 	width: 100%;
+// 	height: $glitch-height;
+// 	overflow: hidden;
 
-.glitch__img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--blend-color-1);
-	background-repeat: no-repeat;
-	background-position: 50%;
-	background-size: cover;
-	background-blend-mode: var(--blend-mode-1);
-}
+// 	&--hover {
+// 		&:hover {
+// 			cursor: pointer;
+// 		}
+// 	}
 
-.glitch__img:nth-child(2) {
-	background-color: var(--blend-color-2);
-	background-blend-mode: var(--blend-mode-2);
-}
+// 	.glitch__img {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		background-repeat: no-repeat;
+// 		background-position: 50%;
+// 		background-size: cover;
 
-.glitch__img:nth-child(3) {
-	background-color: var(--blend-color-3);
-	background-blend-mode: var(--blend-mode-3);
-}
+// 		&--hover {
+// 			background-blend-mode: $glitch-blend-mode-1;
+// 			background-color: $glitch-blend-color-1;
 
-.glitch__img:nth-child(4) {
-	background-color: var(--blend-color-4);
-	background-blend-mode: var(--blend-mode-4);
-}
+// 			&:nth-child(2) {
+// 				background-color: $glitch-blend-color-2;
+// 				background-blend-mode: $glitch-blend-mode-2;
+// 			}
+    
+// 			&:nth-child(3) {
+// 				background-color: $glitch-blend-color-3;
+// 				background-blend-mode: $glitch-blend-mode-3;
+// 			}
 
-.glitch__img:nth-child(5) {
-	background-color: var(--blend-color-5);
-	background-blend-mode: var(--blend-mode-5);
-}
+// 			&:nth-child(4) {
+// 				background-color: $glitch-blend-color-4;
+// 				background-blend-mode: $glitch-blend-mode-4;
+// 			}
+    
+// 			&:nth-child(5) {
+// 				background-color: $glitch-blend-color-5;
+// 				background-blend-mode: $glitch-blend-mode-5;
+// 			}
+// 		}
 
-.glitch__img:nth-child(n+2) {
-	opacity: 0;
-}
+// 		&:nth-child(n+2) {
+// 			opacity: 0;
+// 		}
+// 	}
 
-.glitch:hover .glitch__img:nth-child(n+2) {
-	opacity: 1;
-}
+// 	&:hover {
+// 		.glitch__img {
+// 			&:nth-child(n+2) {
+// 				opacity: 1;
+// 			}
 
-.glitch:hover .glitch__img:nth-child(2) {
-	transform: translate3d(var(--gap-horizontal),0,0);
-	animation: glitch-anim-1-horizontal var(--time-anim) infinite linear alternate;
-}
+// 			&:nth-child(2) {
+// 				transform: translate3d($glitch-gap-horizontal, 0, 0);
+// 				animation: glitch-anim-1-horizontal $glitch-time-anim infinite linear alternate;
+// 			}
 
-.glitch:hover > .glitch__img:nth-child(3) {
-	transform: translate3d(calc(-1 * var(--gap-horizontal)),0,0);
-	animation: glitch-anim-2-horizontal var(--time-anim) infinite linear alternate;
-}
+// 		}
 
-.glitch:hover > .glitch__img:nth-child(4) {
-	transform: translate3d(0, calc(-1 * var(--gap-vertical)), 0) scale3d(-1,-1,1);
-	animation: glitch-anim-3-horizontal var(--time-anim) infinite linear alternate;
-}
+// 		> .glitch__img {
+// 			&--hover {
+// 				&:nth-child(3) {
+// 					transform: translate3d(calc(-1 * #{$glitch-gap-horizontal}), 0, 0);
+// 					animation: glitch-anim-2-horizontal $glitch-time-anim infinite linear alternate;
+// 				}
 
-/* Hover flash animation on last image */
-.glitch:hover > .glitch__img:nth-child(5) {
-	animation: glitch-anim-flash 0.5s steps(1,end) infinite;
-}
+// 				&:nth-child(4) {
+// 					transform: translate3d(0, calc(-1 * #{$glitch-gap-vertical}), 0) scale3d(-1, -1, 1);
+// 					animation: glitch-anim-3-horizontal $glitch-time-anim infinite linear alternate;
+// 				}
+    
+// 				&:nth-child(5) {
+// 					animation: glitch-anim-flash 0.5s steps(1, end) infinite;
+// 				}
 
+// 			}
+
+			
+// 		}
+// 	}
+// }
+
+// =======================
+// Keyframes
+// =======================
 @keyframes glitch-anim-1-horizontal {
 	0% {
 		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
@@ -141,13 +211,13 @@
 }
 
 @keyframes glitch-anim-flash {
-	0% { 
-		transform: translate3d(var(--gap-horizontal), var(--gap-vertical), 0); 
+	0% {
+		transform: translate3d($glitch-gap-horizontal, $glitch-gap-vertical, 0);
 		opacity: 0.2;
 	}
 
-	33%, 100% {
-		transform: translate3d(0,0,0); 
-		opacity: 0;
-	}
+	// 33%, 100% {
+	// 	transform: translate3d(0, 0, 0);
+	// 	opacity: 0;
+	// }
 }
