@@ -14,92 +14,8 @@ $block: hero;
 		height: $hero-height;
 	}
 
-	@keyframes flicker {
-		0% {
-			opacity: 0.27861;
-		}
-
-		5% {
-			opacity: 0.34769;
-		}
-
-		10% {
-			opacity: 0.23604;
-		}
-
-		15% {
-			opacity: 0.90626;
-		}
-
-		20% {
-			opacity: 0.18128;
-		}
-
-		25% {
-			opacity: 0.83891;
-		}
-
-		30% {
-			opacity: 0.65583;
-		}
-
-		35% {
-			opacity: 0.67807;
-		}
-
-		40% {
-			opacity: 0.26559;
-		}
-
-		45% {
-			opacity: 0.84693;
-		}
-
-		50% {
-			opacity: 0.96019;
-		}
-
-		55% {
-			opacity: 0.08594;
-		}
-
-		60% {
-			opacity: 0.20313;
-		}
-
-		65% {
-			opacity: 0.71988;
-		}
-
-		70% {
-			opacity: 0.53455;
-		}
-
-		75% {
-			opacity: 0.37288;
-		}
-
-		80% {
-			opacity: 0.71428;
-		}
-
-		85% {
-			opacity: 0.70419;
-		}
-
-		90% {
-			opacity: 0.7003;
-		}
-
-		95% {
-			opacity: 0.36108;
-		}
-
-		100% {
-			opacity: 0.24387;
-		}
-	}
-      
+	// unsure if I want to keep the animations, but keeping here just in case I want them
+	// https://aleclownes.com/2017/02/01/crt-display.html
 	@keyframes textShadow {
 		0% {
 			text-shadow: 0.4389924193300864px 0 1px rgb(0 30 255 / 50%), -0.4389924193300864px 0 1px rgb(255 0 80 / 30%), 0 0 3px;
@@ -186,7 +102,22 @@ $block: hero;
 		}
 	}
 
-	// https://aleclownes.com/2017/02/01/crt-display.html
+	@keyframes pauseBetween {
+		0%, 20% {
+			opacity: 1; // Text shadow effect active for 2s (20% of 10s)
+		}
+
+		21%, 99% {
+			text-shadow: none;
+			opacity: 1; // Normal text without animation effect
+		}
+
+		100% {
+			opacity: 1; // Prepare for next cycle
+		}
+	}
+
+	
 	.crt {
 		position: absolute;
 		min-height: $hero-height;
@@ -216,7 +147,7 @@ $block: hero;
 			z-index: 2;
 			inset: 0;
 			pointer-events: none;
-			animation: flicker 1.5s infinite;
+			// animation: flicker 1.5s infinite;
 
 			.no-animations & {
 				animation: none;
@@ -229,7 +160,7 @@ $block: hero;
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(180deg,rgba($black, 0) 0%, rgba($crust, 1) 100%);
+		background: linear-gradient(180deg,rgba($black, 0) 0%, rgba($rosewater, 1) 80%);
 
 		picture {
 			position: absolute;
@@ -240,12 +171,6 @@ $block: hero;
 		}
 	}
 
-	&__container {
-		display: flex;
-		flex-direction: column;
-		height: $hero-height;
-	}
-
 	&__content {
 		position: absolute;
 		display: flex;
@@ -253,22 +178,28 @@ $block: hero;
 		align-items: center;
 		justify-content: center;
 		margin: auto;
-		margin-top: -10rem; // one off
-		color: $rosewater;
+		margin-top: -5rem; // one off
+		color: $crust;
 		inset: 0;
 		text-align: center;
-		cursor: arrow;
 
 		h1 {
 			font-size: $h1-font-size-xl;
 			font-weight: fw(bold);
-			cursor: arrow;
+			animation: textShadow 2s steps(1) infinite normal,
+				pauseBetween 10s infinite normal;
+
+			.no-animations & {
+				animation: none;
+			}
 		}
 
 		p {
 			font-family: $font-family-secondary;
+			font-size: rem-calc(24);
 			font-weight: fw(medium);
-			animation: textShadow 1.6s infinite;
+			animation: textShadow 2s steps(1) infinite normal,
+				pauseBetween 10s infinite normal;
 
 			.no-animations & {
 				animation: none;

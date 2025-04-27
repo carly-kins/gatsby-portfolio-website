@@ -10,21 +10,21 @@ $block: navbar;
 		right: 0;
 		left: 0;
 		height: 150%;
-		background: linear-gradient(0deg,rgba($black, 0) 0%, rgba($crust, .95) 100%);
+		background: linear-gradient(0deg,rgba($black, 0) 0%, rgba($rosewater, .95) 100%);
 		content: '';
 		z-index: -1;
 	}
 
 	.nav-link {
 		@include focus-state;
-		color: $rosewater;
+		color: $crust;
 		font-family: $font-family-secondary;
 		font-weight: fw(medium);
 
 		&:hover,
 		&:focus,
 		&.active {
-			color: $mauve;
+			color: $link-hover;
 		}
 	}
 
@@ -49,12 +49,16 @@ $block: navbar;
 		border: 0;
 		background-color: transparent;
 
+		svg {
+			fill: $crust;
+		}
+
 		&:hover,
 		&:focus {
 			border: 0;
 
 			svg {
-				fill: $mauve;
+				fill: $link-hover;
 			}
 		}
 	}

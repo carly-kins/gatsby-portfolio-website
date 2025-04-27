@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useStaticQuery, graphql } from 'gatsby';
 
+// TODO: Move check for reduced animation out of nav and into head so I can set the body class, send into nav. 
 const Navigation = () => {
 	const [animationsEnabled, setAnimationsEnabled] = useState( true );
 
@@ -12,18 +13,21 @@ const Navigation = () => {
 	};
 
 	useEffect( () => {
-		// Check if the user has a preference for reduced motion
 		const prefersReducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-	
-		if ( prefersReducedMotion ) {
+		const storageDisabled = localStorage.getItem( 'animationsEnabled' ) === 'false';
+		if ( prefersReducedMotion || storageDisabled ) {
 			setAnimationsEnabled( false );
 		}
+	}, [] );
 
+	useEffect( () => {
 		if ( animationsEnabled ) {
 			document.body.classList.remove( 'no-animations' );
 		} else {
 			document.body.classList.add( 'no-animations' );
 		}
+
+		localStorage.setItem( 'animationsEnabled', animationsEnabled );
 	}, [animationsEnabled] );
 
 	const data = useStaticQuery( graphql`
@@ -55,7 +59,7 @@ const Navigation = () => {
 						</ul>
 					</Nav>
 				</Navbar.Collapse>
-				<button className="btn button" onClick={toggleAnimations}>
+				<button className="btn button btn-primary" onClick={toggleAnimations}>
 					<span>
 						{animationsEnabled ? 
 							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z"/></svg> 

@@ -4,7 +4,6 @@ export function Head( {location, params, data, pageContext} ) {
 	return (
 		<>
 			<html lang="en" />
-			<body className="my-body-class" />
 			<title>{pageContext.title}</title>
 			<link rel="preconnect" href="https://fonts.googleapis.com"></link>	
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
