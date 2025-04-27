@@ -1,7 +1,7 @@
 ---
 hero: 
-    heading: Carly Anne
-    subheading: "developer. artist. ???"
+    heading: Carly Wooten Gall
+    subheading: "front-end developer. artist."
     img: ../../images/homepage-hero.png
     alt: A watercolor of lilies and lavender
 about: 
