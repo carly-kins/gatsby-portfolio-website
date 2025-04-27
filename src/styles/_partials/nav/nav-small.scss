@@ -1,0 +1,42 @@
+$block: navbar;
+
+.#{$block} {
+	position: relative;
+	padding-top: spacing(md);
+
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 150%;
+		background: linear-gradient(0deg,rgba($black, 0) 0%, rgba($crust, .95) 100%);
+		content: '';
+		z-index: -1;
+	}
+
+	.nav-link {
+		color: $rosewater;
+		font-family: $font-family-secondary;
+		font-weight: fw(medium);
+
+		&:hover,
+		&:focus {
+			color: $mauve;
+		}
+	}
+
+	&-toggler {
+		background-color: $rosewater;
+	}
+
+	.button {
+		position: absolute;
+		top: spacing(md);
+		right: $gutter;
+	}
+
+	.me-auto {
+		margin-top: spacing(sm);
+	}
+}

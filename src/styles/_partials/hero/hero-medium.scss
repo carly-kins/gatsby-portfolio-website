@@ -1,0 +1,18 @@
+$block: hero;
+
+@include media-breakpoint-up(md) { 
+	.#{$block} {
+
+		.gatsby-image-wrapper {
+			picture {
+				left: 20%;
+	
+				img {
+					/* stylelint-disable-next-line declaration-no-important */
+					object-fit: scale-down !important;
+	
+				}
+			}
+		}
+	}
+}

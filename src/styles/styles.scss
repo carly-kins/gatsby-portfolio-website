@@ -4,6 +4,7 @@
 \*------------------------------------ */
 // @ import "_global/mixins";
 // @import "_global/fonts";
+@import '_global/mixins';
 @import '_global/variables';
 @import 'node_modules/bootstrap/scss/_functions';
 @import '_vendor/bootstrap-variables';
@@ -22,21 +23,19 @@
     #SMALL
 \*------------------------------------ */
 @import '_partials/tags/tags-small';
+@import '_partials/hero/glitch';
+@import '_partials/hero/hero-small';
+@import '_partials/nav/nav-small';
 
 /* ------------------------------------*\
     #MEDIUM
 \*------------------------------------ */
-@media (width >= 768px) { 
-
-
-}
+@import '_partials/hero/hero-medium';
+@import '_partials/nav/nav-medium';
 
 
 /* ------------------------------------*\
     #LARGE
 \*------------------------------------ */
-
-@media (width >= 992px) { 
-
-
+@include media-breakpoint-up(lg) { 
 }
