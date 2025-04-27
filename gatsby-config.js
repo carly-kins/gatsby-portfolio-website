@@ -15,7 +15,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",
-        "path": "./src/images/"
+        "path": `${__dirname}/src/images`
       },
       __key: "images"
     }, 
@@ -23,14 +23,21 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
-        "path": "./src/pages/"
+        "path": `${__dirname}/src/pages/`
       },
       __key: "pages"
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        name: `projects`,
+        path: `${__dirname}/src/data/projects/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/`,
       }
     },
     {
@@ -65,5 +72,8 @@ module.exports = {
         typeName: ({ object }) => object.typeName || "JsonFiles"
       },
     },
-  ]
+  ],
+  mapping: {
+    "MarkdownRemark.frontmatter.featuredImage": `File`,
+  },
 };
