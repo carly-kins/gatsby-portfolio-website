@@ -22,6 +22,8 @@ exports.createSchemaCustomization = ( { actions } ) => {
 	  type Hero {
   		heading: String
   		subheading: String
+		img: File @fileByRelativePath
+		alt: String
 	  }
 
 	  type About {

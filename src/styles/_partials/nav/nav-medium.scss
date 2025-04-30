@@ -1,0 +1,11 @@
+$block: navbar;
+
+@include media-breakpoint-up(md) { 
+	.#{$block} {
+
+		.button {
+			position: static;
+			margin-top: spacing(sm);
+		}
+	}
+}

@@ -1,9 +1,9 @@
 ---
 nav: 
-    - title: About
+    - title: about.
       url: "#about"
-    - title: Projects
+    - title: projects.
       url: "#projects"
-    - title: Contact
+    - title: contact.
       url: "#contact"
 ---

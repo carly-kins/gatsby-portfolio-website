@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use 'sass:math';
+
+// https://gist.github.com/olefredrik/e2e5822013c2a027e3b57cf21c8f4a48
+@function rem-calc($size, $base-size: 16) {
+	$rem-size: math.div($size, $base-size);
+
+	@return #{$rem-size}rem;
+}
+
+@function fw($weight) {
+	@return map.get($font-weights, $weight)
+}
+
+@function spacing($space) {
+	@return map.get($spacing, $space)
+}
+
+@mixin focus-state() {
+	&:focus-visible {
+		transition: box-shadow 0.1s linear;
+		border-radius: $border-radius-sm;
+		outline: 0;
+		box-shadow: $focus-ring-box-shadow;
+	}
+}

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Navigation from './nav';
 
-const Layout = ( { children } ) => {
+const Layout = ( { children, homepage } ) => {
 	return (
 		<>
-			<Navigation/>
+			{!homepage ? <Navigation /> : ''}
 			<main>
 				{children}
 			</main>

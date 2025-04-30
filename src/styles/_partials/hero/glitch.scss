@@ -1,0 +1,106 @@
+
+// https://tympanus.net/Tutorials/CSSGlitchEffect/index3.html
+// =======================
+// Variables
+// =======================
+$hero-height: 80vh;
+$glitch-gap-horizontal: 10px;
+$glitch-gap-vertical: 5px;
+
+$glitch-time-anim: 35s;
+$glitch-delay-anim: 2s;
+
+// =======================
+// Hero Glitch effect
+// =======================
+.hero {
+	.glitch {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		height: $hero-height;
+		overflow: hidden;
+	}
+
+	.glitch__img { 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		&:nth-child(2) {
+			transform: translate3d($glitch-gap-horizontal, 0, 0);
+			animation: glitch-anim-1-horizontal $glitch-time-anim infinite linear alternate;
+			opacity: 0.2;
+
+			.no-animations & {
+				transform: translate3d($glitch-gap-horizontal, $glitch-gap-vertical, 0);
+				animation: none;
+			}
+		}
+
+		&:nth-child(3) {
+			transform: translate3d(0, calc(-1 * #{$glitch-gap-vertical}), 0) scale3d(-1, -1, 1);
+			animation: glitch-anim-1-horizontal $glitch-time-anim infinite linear alternate;
+			opacity: 0.2;
+			animation-delay: $glitch-delay-anim * -1;
+
+			.no-animations & {
+				opacity: 0;
+				animation: none;
+			}
+		}
+	}
+}
+
+// =======================
+// Keyframes
+// =======================
+@keyframes glitch-anim-1-horizontal {
+	0% {
+		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+	}
+
+	10% {
+		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+	}
+
+	20% {
+		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+	}
+
+	30% {
+		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+	}
+
+	40% {
+		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+	}
+
+	50% {
+		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+	}
+
+	60% {
+		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+	}
+
+	70% {
+		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+	}
+
+	80% {
+		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+	}
+
+	90% {
+		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+	}
+
+	100% {
+		clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+	}
+}

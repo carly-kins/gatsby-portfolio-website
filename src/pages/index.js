@@ -11,8 +11,8 @@ const IndexPage = ( { data } ) => {
 	const projectCards = data.projectCards.edges;
 
 	return (
-		<Layout>
-			<Hero hero={hero} />
+		<Layout homepage={true}>
+			<Hero homepage={true} hero={hero} />
 			<div className='container'> 
 				<h2 id={about.id}>{about.heading}</h2>
 				<p>{about.description}</p>
@@ -40,6 +40,12 @@ export const pageQuery = graphql`
       hero {
         heading
         subheading
+        alt
+        img {
+        childImageSharp {
+          gatsbyImageData(width: 1080)
+        }
+      }
       }
       about {
         heading
@@ -62,8 +68,7 @@ export const pageQuery = graphql`
   }
 }`;
 
-export const Head = () => <title>Home Page</title>;
-
+export { Head } from '../components/head';
 
 {/*TODO: ADD PROJECT SECTION
             -- Cards of Clients I have worked with (Later Feature)
