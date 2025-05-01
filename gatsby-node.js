@@ -10,13 +10,22 @@ exports.createSchemaCustomization = ( { actions } ) => {
 	  type Frontmatter {
 		featuredImage: File @fileByRelativePath
 		nav: [Nav]
+		sections: [Sections]
 		hero: Hero
-  		about: About
+		slug: String
+		type: String
+		project: Project
 	  }
 
 	  type Nav {
   		title: String
   		url: String
+	  }
+
+	  type Sections {
+	  	heading: String
+  		description: String
+		id: String
 	  }
 
 	  type Hero {
@@ -26,10 +35,14 @@ exports.createSchemaCustomization = ( { actions } ) => {
 		alt: String
 	  }
 
-	  type About {
-  		heading: String
+	  type Project {
+  		title: String
   		description: String
 		id: String
+		featuredImage: File @fileByRelativePath
+		highlight: Boolean
+		logo: File @fileByRelativePath
+		skills: [String]
 	  }
 	` );
 };

@@ -1,23 +1,27 @@
 import * as React from 'react';
 import Layout from '../components/layout';
+import Section from '../components/section';
 import Cards from '../components/cards';
 import Hero from '../components/hero';
 import { graphql } from 'gatsby';
 import '../styles/styles.scss';
 
 const IndexPage = ( { data } ) => {
-	const about = data.about.frontmatter.about;
-	const hero = data.about.frontmatter.hero;
+	const hero = data.homepage.frontmatter.hero;
+	const sections = data.homepage.frontmatter.sections;
 	const projectCards = data.projectCards.edges;
 
 	return (
 		<Layout homepage={true}>
 			<Hero homepage={true} hero={hero} />
 			<div className='container'> 
-				<h2 id={about.id}>{about.heading}</h2>
-				<p>{about.description}</p>
+				{sections.map( ( section, index ) => 
+					<Section key={index} section={section}>
+						{ section.id === 'projects' ? <Cards cards={projectCards} /> : '' }
+					</Section>
+				) }
 			</div>
-			<Cards cards={projectCards} />
+			
 
 			{/*CV and Resume*/}
 			{/*TODO section*/}
@@ -35,33 +39,43 @@ export const pageQuery = graphql`
       description
     }
   }
-  about: markdownRemark(fileAbsolutePath: {regex: "/homepage.md/"}) {
+  homepage: markdownRemark(fileAbsolutePath: {regex: "/homepage.md/"}) {
     frontmatter {
       hero {
         heading
         subheading
         alt
         img {
-        childImageSharp {
-          gatsbyImageData(width: 1080)
+          childImageSharp {
+            gatsbyImageData(width: 1080)
+          }
         }
       }
-      }
-      about {
-        heading
+      sections {
         description
+        heading
         id
       }
     }
   }
+  
   projectCards: allMarkdownRemark(
-    filter: {frontmatter: {highlight: {eq: true}, type: {eq: "project"}}}
+    filter: {frontmatter: {project: {highlight: {eq: true}}, type: {eq: "project"}}}
   ) {
     edges {
       node {
         frontmatter {
-          title
           slug
+          project {
+            description
+            title
+            skills
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(width: 600)
+              }
+            }
+          }
         }
       }
     }
