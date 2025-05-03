@@ -2,7 +2,6 @@
 /* ------------------------------------*\
     #GLOBAL
 \*------------------------------------ */
-// @ import "_global/mixins";
 // @import "_global/fonts";
 @import '_global/mixins';
 @import '_global/variables';
@@ -26,16 +25,17 @@
 @import '_partials/hero/glitch';
 @import '_partials/hero/hero-small';
 @import '_partials/nav/nav-small';
+@import '_partials/project-cards/project-cards-small';
+@import '_partials/button/button-small';
 
 /* ------------------------------------*\
     #MEDIUM
 \*------------------------------------ */
 @import '_partials/hero/hero-medium';
 @import '_partials/nav/nav-medium';
-
+@import '_partials/project-cards/project-cards-medium';
 
 /* ------------------------------------*\
     #LARGE
 \*------------------------------------ */
-@include media-breakpoint-up(lg) { 
-}
+@import '_partials/project-cards/project-cards-large';

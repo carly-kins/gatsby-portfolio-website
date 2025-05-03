@@ -57,6 +57,8 @@ $base-latte: #eff1f5;
 $mantle-latte: #e6e9ef;
 $crust-latte: #dce0e8;
 
+$background-color: $base-latte;
+$text-color: $text-latte;
 $link-hover: $lavender-latte;
 
 
@@ -74,7 +76,8 @@ $spacing: (
 	'5xl': rem-calc(36),
 	'6xl': rem-calc(40)
 );
-$vertical-spacing: spacing('6xl');
+$vertical-spacing: calc(spacing('6xl') * 1.5);
+$component-spacing: spacing('3xl');
 $gutter: calc(spacing('2xl') * .5); // imports before bootstrap variables, so duplicating here for ease of use
 
 // fonts
@@ -93,12 +96,12 @@ $font-weights: (
 );
 
 $font-size-base: 16;
-$h1-font-size-xl: rem-calc($font-size-base * 2.5);
-//$h1-font-size:                $font-size-base * 2.5 !default;
-//$h2-font-size:                $font-size-base * 2 !default;
-//$h3-font-size:                $font-size-base * 1.75 !default;
-//$h4-font-size:                $font-size-base * 1.5 !default;
-//$h5-font-size:                $font-size-base * 1.25 !default;
-//$h6-font-size:                $font-size-base !default;
+$h1-font-size-xl: rem-calc($font-size-base * 3);
+$h1-font-size: rem-calc($font-size-base * 2.5);
+$h2-font-size: rem-calc($font-size-base * 2.5 );
+$h3-font-size: rem-calc($font-size-base * 1.75);
+$h4-font-size: rem-calc($font-size-base * 1.5 );
+$h5-font-size: rem-calc($font-size-base * 1.25);
+$h6-font-size: rem-calc($font-size-base );
 
 $focus-ring-box-shadow: 0 0 0 .25rem rgba($link-hover, .75);

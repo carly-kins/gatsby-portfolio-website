@@ -15,6 +15,9 @@ const IndexPage = ( { data } ) => {
 		<Layout homepage={true}>
 			<Hero homepage={true} hero={hero} />
 			<div className='container'> 
+				<div className="alert alert-primary" role="alert">
+          I am in the process of migrating my visual art portfolio to this page. If you are interested in my artwork, please check out https://www.carlyannewooten.com/. If you are interested in what I plan to add to this site in the coming months check out GITHUB LINK.
+				</div>
 				{sections.map( ( section, index ) => 
 					<Section key={index} section={section}>
 						{ section.id === 'projects' ? <Cards cards={projectCards} /> : '' }

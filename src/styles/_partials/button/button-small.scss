@@ -1,0 +1,23 @@
+$block: button;
+.#{$block} {
+	&.btn {
+		&-github,
+		&-external {
+			@include focus-state;
+			width: rem-calc(44);
+			height: rem-calc(44);
+			padding: spacing(sm);
+
+			svg {
+				fill: $text-color;
+			}
+
+			&:hover,
+			&:focus {
+				svg {
+					fill: $link-hover;
+				}
+			}
+		}
+	}
+}

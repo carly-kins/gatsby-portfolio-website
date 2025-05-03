@@ -3,11 +3,11 @@ import * as React from 'react';
 import { default as Button } from './button';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const CardImage = ( {card} ) => {
+const CardImage = ( {card, sm, lg} ) => {
 	const featuredImg = getImage( card.project.featuredImage?.childImageSharp?.gatsbyImageData );
 
 	return (
-		<div className='col-12 col-lg-6'>
+		<div className={sm ? 'project-cards__img--sm project-cards__img' : ( lg ? 'project-cards__img--lg project-cards__img' : 'project-cards__img' )}>
 			{ featuredImg ? <GatsbyImage image={featuredImg} /> : '' }
 		</div>
 	);
@@ -15,15 +15,18 @@ const CardImage = ( {card} ) => {
 
 const CardText = ( {card} ) => {
 	return (
-		<div className='col-12 col-lg-6'>
+		<div className='project-cards__content'>
 			<h3>{card.project.title}</h3>
-			<p>
+			<p className='project-cards__badges'>
 				{ card.project.skills ? card.project.skills.map( ( skill, index ) => {
-					return <span key={index} className={`badge badge--${skill} text-bg-secondary`}>{skill}</span>;
+					return <span key={index} className={`badge badge--${skill}`}>{skill}</span>;
 				} ) : '' }
 			</p>
-			<p>{card.project.description}</p>
-			<Button link={card.slug} text={'Visit Github'} visuallyHidden={true} type={'github'} icon={true} />
+			<p className='project-cards__text' dangerouslySetInnerHTML={{ __html: card.project.description }}></p>
+			<div className='project-cards__footer'>
+				<Button link={card.slug} text={'Visit Github'} visuallyHidden={true} type={'github'} icon={true} />
+				<Button link={card.slug} text={'Visit Site'} visuallyHidden={true} type={'external'} icon={true} />
+			</div>
 		</div>
 	);
 };
@@ -39,19 +42,18 @@ const Cards = ( {cards, title, description} ) => {
 					card = card.node.frontmatter;
 					return (
 						<li key={index} className='project-cards__card'>
-							<div className='row'>
-								{ index % 2 === 0 ?
-									<>
-										<CardImage card={card} />
-										<CardText card={card}/>
-									</>
-									:
-									<>
-										<CardText card={card}/>
-										<CardImage card={card} />
-									</>
-								}
-							</div>
+							{ index % 2 === 0 ?
+								<>
+									<CardImage card={card} />
+									<CardText card={card}/>
+								</>
+								:
+								<>
+									<CardImage card={card} sm={true} />
+									<CardText card={card}/>
+									<CardImage card={card} lg={true} />
+								</>
+							}
 						</li>
 					);
 				}

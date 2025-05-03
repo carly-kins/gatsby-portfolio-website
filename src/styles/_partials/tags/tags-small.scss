@@ -1,4 +1,78 @@
 body {
-	background-color:  $rosewater; 
+	background-color:  $background-color; 
 	font-family: $font-family-primary;
+}
+
+section {
+	margin-bottom: $vertical-spacing;
+}
+
+.section-description {
+	margin-bottom: $component-spacing;
+}
+
+.alert {
+	margin-bottom: $vertical-spacing;
+}
+
+h1 {
+	font-size: $h1-font-size;
+}
+
+h2 {
+	font-size: $h2-font-size;
+}
+
+h3 {
+	font-size: $h3-font-size;
+}
+
+h4 {
+	font-size: $h4-font-size;
+}
+
+h5 {
+	font-size: $h5-font-size;
+}
+
+h6 {
+	font-size: $h6-font-size;
+}
+
+
+.badge { 
+	&--JS {
+		background-color:  $yellow;
+		color: $surface0;
+	}
+
+	&--HTML5 {
+		background-color:  $peach; 
+		color: $surface0;
+	}
+
+	&--CSS {
+		background-color:  $mauve; 
+		color: $surface0;
+	}
+
+	&--SCSS {
+		background-color:  $pink; 
+		color: $surface0;
+	}
+
+	&--AJAX-REST {
+		background-color:  $text-color; 
+		color: $white;
+	}
+
+	&--Bootstrap {
+		background-color:  $lavender; 
+		color: $surface0;
+	}
+
+	&--AEM {
+		background-color:  $red; 
+		color: $surface0;
+	}
 }
