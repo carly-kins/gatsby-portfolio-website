@@ -73,6 +73,8 @@ export const pageQuery = graphql`
             description
             title
             skills
+            link
+            githubLink
             featuredImage {
               childImageSharp {
                 gatsbyImageData(width: 600)

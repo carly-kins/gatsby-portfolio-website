@@ -5,6 +5,8 @@ project:
     title: NBA Mind Health
     logo: ''
     highlight: true
+    link: www.google.com
+    githubLink: false
     skills: 
         - JS
         - HTML5

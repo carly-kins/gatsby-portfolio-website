@@ -23,10 +23,15 @@ const CardText = ( {card} ) => {
 				} ) : '' }
 			</p>
 			<p className='project-cards__text' dangerouslySetInnerHTML={{ __html: card.project.description }}></p>
-			<div className='project-cards__footer'>
-				<Button link={card.slug} text={'Visit Github'} visuallyHidden={true} type={'github'} icon={true} />
-				<Button link={card.slug} text={'Visit Site'} visuallyHidden={true} type={'external'} icon={true} />
-			</div>
+
+			{console.log(card.project.link)}
+
+			{ card.project.link || card.project.githubLink ? 
+				<div className='project-cards__footer'>
+					{ card.project.link ? <Button link={card.project.link} text={'Visit Site'} visuallyHidden={true} type={'external'} icon={true} /> : ''}
+					{ card.project.githubLink ? <Button link={card.project.githubLink} text={'Visit Github'} visuallyHidden={true} type={'github'} icon={true} />: ''}
+				</div>
+			: ''}
 		</div>
 	);
 };
