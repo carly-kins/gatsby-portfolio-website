@@ -1,0 +1,62 @@
+$block: project-cards;
+
+.#{$block} {
+	ul {
+		padding: 0;
+		list-style-type: none;
+	}
+
+	&__badges {
+		display: flex;
+		gap: spacing(xs);
+		flex-wrap: wrap;
+		margin-bottom: spacing(xl);
+	} 
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: $component-spacing;
+		gap: $gutter;
+		border-radius: 12px;
+		background-color: $white;
+		box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
+		overflow: clip;;
+	}
+
+	&__text {
+		margin-bottom: spacing(xl); 
+	}
+
+	&__img {
+		@include crt-overlay;
+		position: relative;
+		aspect-ratio: 16/9;
+
+		.gatsby-image-wrapper {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+    
+			picture {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				//z-index: -1;
+			}
+		}
+
+		&--lg {
+			display: none;
+		}
+
+	}
+
+	&__content {
+		padding: $grid-gutter-width;
+
+	}
+
+}

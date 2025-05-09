@@ -1,0 +1,6 @@
+$block: project-cards;
+
+@include media-breakpoint-up(md) { 
+	.#{$block} {
+	}
+}

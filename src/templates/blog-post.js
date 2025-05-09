@@ -1,3 +1,5 @@
+//TODO: add individual pages for projects, etc
+
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
@@ -26,12 +28,14 @@ export const query = graphql`
   markdownRemark(frontmatter: { slug: { eq: $slug } }) {
     html
     frontmatter {
-      title
-      featuredImage {
-        childImageSharp {
-          gatsbyImageData(width: 800)
+	  project {
+		 title
+      	 featuredImage {
+          childImageSharp {
+            gatsbyImageData(width: 800)
+          }
         }
-      }
+	  }
     }
   }
 }

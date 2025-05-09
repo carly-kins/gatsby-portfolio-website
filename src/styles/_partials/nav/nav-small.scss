@@ -10,14 +10,14 @@ $block: navbar;
 		right: 0;
 		left: 0;
 		height: 150%;
-		background: linear-gradient(0deg,rgba($black, 0) 0%, rgba($rosewater, .95) 100%);
+		background: linear-gradient(0deg,rgba($black, 0) 0%, rgba($background-color, .95) 100%);
 		content: '';
 		z-index: -1;
 	}
 
 	.nav-link {
 		@include focus-state;
-		color: $crust;
+		color: $text-color;
 		font-family: $font-family-secondary;
 		font-weight: fw(medium);
 
@@ -30,7 +30,7 @@ $block: navbar;
 
 	&-toggler {
 		@include focus-state;
-		background-color: $rosewater;
+		background-color: $background-color;
         
 		&:hover,
 		&:focus {
@@ -50,7 +50,7 @@ $block: navbar;
 		background-color: transparent;
 
 		svg {
-			fill: $crust;
+			fill: $text-color;
 		}
 
 		&:hover,

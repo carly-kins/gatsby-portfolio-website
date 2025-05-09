@@ -406,14 +406,14 @@ $spacer: 1rem !default;
 //// Settings for the `<body>` element.
 
 //$body-bg:                   $white !default;
-//$body-color:                $gray-900 !default;
+$body-color: $text-color;
 //$body-text-align:           null !default;
 
 //// Links
 ////
 //// Style anchor elements.
 
-//$link-color:                              $primary !default;
+//$link-color: $primary !default;
 //$link-decoration:                         underline !default;
 //$link-shade-percentage:                   20% !default;
 //$link-hover-color:                        shift-color($link-color,$link-shade-percentage) !default;
